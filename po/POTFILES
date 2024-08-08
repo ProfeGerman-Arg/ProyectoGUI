@@ -1,0 +1,7 @@
+data/org.my.ProyectoGUI.desktop.in
+data/org.my.ProyectoGUI.appdata.xml.in
+data/org.my.ProyectoGUI.gschema.xml
+src/proyectogui-window.ui
+src/main.c
+src/proyectogui-window.c
+

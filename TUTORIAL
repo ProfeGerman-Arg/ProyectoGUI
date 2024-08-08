@@ -1,0 +1,61 @@
+1-CREACIÓN DEL NUEVO PROYECTO AL INICIAR BUILDER.
+	1-Seleccionar "iniciar nuevo proyecto".
+	2-Colocar un nombre representativo, sin espacios y evitar excesos de mayúscula y caracteres 			especiales.
+	3-Identif. de la aplicación es un nombre de fantasía, un dominio de un sitio web que puede ser ficticio, y que se escribe de manera inversa, por ej "org.proyecto.Builder". Anotar y guardar textualmente ese ID porque habrá que recordarlo para colocarlo luego en el código fuente.
+	4-En ubicación indicar la carpeta en la que se guardarán los archivos del proyecto. NO se podrá cambiar una vez que comienza a compilarse.
+	5-Lenguaje seleccionar C y Licencia no es necesario, seleccionar "sin licencia" en el menú de este campo (los 3 puntitos).
+	6-Desactivar el control de versiones y marcar la plantilla "Aplicación de GNOME".
+	7-Clickear botón para crear el proyecto.
+	
+2-COMPILAR EL PROYECTO CADA VEZ QUE SE INICIA, previo a editar código, debe mostrarse la UI
+
+3-Crear un archivo y guardarlo dentro de la carpeta src, con el nombre "proyectogui-application.h", donde "proyectogui" es el nombre del proyecto asignado en el asistente inicial.
+	1-Declarar #include "glib-object.h" para que tome comandos y poder crear el código.
+	2-Escribir el comando gobject_final para que incluya el código de este archivo.
+	3-Reemplazar #include "glib-object.h" por #include <gtk/gtk.h>.
+	4-Cambiar GObject por gtk.
+	
+4-Crear un archivo y guardarlo dentro de la carpeta src, con el nombre "proyectogui-application.c", donde "proyectogui" es el nombre del proyecto asignado en el asistente inicial.
+	1-Declarar #include "proyectogui-application.h".
+	2-Escribir el comando gobject_final.
+	3-Borrar la librería #include "proyectogui-application.h" duplicada.	
+	4-Cambiar los GObject por gtk y suprimir código excedente.
+	
+5-Declarar el archivo 'proyectogui-application.c' en meson.build debajo de 'main.c'.
+
+6-Compilar, debe mostrar la UI, caso contrario deben saltar errores que deben corregirse.
+
+7-Editar archivo 'main.c'.
+	1-Borrar librería #include "proyectogui-window.h".
+	2-Incluir librería #include "proyectogui-application.h".
+	3-Suprimir funcion on_activate.
+	4-Cambiar gtk por application
+	
+8-Editar archivo 'proyectogui-application.c'.
+	1-Incluir librería #include "proyectogui-window.h".
+	2-Implementar funciones que inicializan clases y activan la app.
+	
+9-Abrir en vista diseño la UI, proyectogui-window.ui.
+	1-Borrar label ("hellow world").
+	2-Editar la GUI y guardar o cerrar para que tome los cambios.
+	
+10-Editar archivo proyectogui-window.c
+	1-Borrar label declarada en los widgets y su inicialización en las clases.
+	2-Compilar, debe mostrar la UI actualizada, caso contrario deben saltar errores que deben corregirse.
+	
+11-Editar archivo proyectogui-application.c.
+	1-Implementar funciones que inicializan clases que llaman a acciones y las acciones invocadas en la UI.
+	2-Compilar, debe mostrar la UI, probar la acción "quit" caso contrario deben saltar errores que deben corregirse.
+	3-Declarar las librerias #include <glib/gi18n.h>.
+
+12-Abrir en vista diseño la UI, proyectogui-window.ui.
+	1-Completar la UI con los controles detallados y las acciones de cada control.
+	2-Declarar los widgets en proyectogui-window.c y su inicialización en las clases.
+	
+13-Editar archivo proyectogui-application.c.
+	1-Implementar funciones que inicializan la app y que llaman a acciones invocadas en la UI.
+	
+14-Editar archivo proyectogui-window.c
+	1-Implementar fuciones que registran acciones de los controles de la UI.
+	2-Implementar los eventos de cada control utilizado en la UI.
+	
