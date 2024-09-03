@@ -12,32 +12,37 @@
 3-Crear un archivo y guardarlo dentro de la carpeta src, con el nombre "proyectogui-application.h", donde "proyectogui" es el nombre del proyecto asignado en el asistente inicial.
 	1-Declarar #include "glib-object.h" para que tome comandos y poder crear el código.
 	2-Escribir el comando gobject_final para que incluya el código de este archivo.
-	3-Reemplazar #include "glib-object.h" por #include <gtk/gtk.h>.
-	4-Cambiar GObject por gtk.
+	3-Reemplazar #include "glib-object.h" por #include <gtk/gtk.h> y eliminar el duplicado, antes de "#pragma once".
+	4-Cambiar GObject por GtkApplication.
+	5-Guardar archivo.
 	
 4-Crear un archivo y guardarlo dentro de la carpeta src, con el nombre "proyectogui-application.c", donde "proyectogui" es el nombre del proyecto asignado en el asistente inicial.
 	1-Declarar #include "proyectogui-application.h".
 	2-Escribir el comando gobject_final.
 	3-Borrar la librería #include "proyectogui-application.h" duplicada.	
-	4-Cambiar los GObject por gtk y suprimir código excedente.
+	4-Cambiar los GObject por gtk y suprimir código excedente (detalles en còdigo duente).
+	5-Guardar archivo.
 	
-5-Declarar el archivo 'proyectogui-application.c' en meson.build debajo de 'main.c'.
+5-Declarar el archivo 'proyectogui-application.c' en meson.build (EL QUE SE ECNUENTRA EN LA CARPETA src, NO EL DE LA CARPETA SUPERIOR) debajo de 'main.c'. Guardar el archivo.
 
 6-Compilar, debe mostrar la UI, caso contrario deben saltar errores que deben corregirse.
 
 7-Editar archivo 'main.c'.
 	1-Borrar librería #include "proyectogui-window.h".
 	2-Incluir librería #include "proyectogui-application.h".
-	3-Suprimir funcion on_activate.
-	4-Cambiar gtk por application
+	3-Suprimir funcion on_activate (ver còdigo fuente).
+	4-Cambiar gtk por application.
+	5-Guardar archivo.
 	
 8-Editar archivo 'proyectogui-application.c'.
 	1-Incluir librería #include "proyectogui-window.h".
-	2-Implementar funciones que inicializan clases y activan la app.
+	2-Implementar funciones que inicializan clases y activan la app (ver còdigo fuente).
+	3-Guardar archivo y NO COMPILAR.
 	
 9-Abrir en vista diseño la UI, proyectogui-window.ui.
 	1-Borrar label ("hellow world").
 	2-Editar la GUI y guardar o cerrar para que tome los cambios.
+	3-NO COMPILAR.
 	
 10-Editar archivo proyectogui-window.c
 	1-Borrar label declarada en los widgets y su inicialización en las clases.
